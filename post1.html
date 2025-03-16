@@ -1,23 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3 Python Scripts to Automate Boring Tasks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        pre {
+            background: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: "Courier New", monospace;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+    </style>
 </head>
+
 <body>
+
     <h1>3 Python Scripts to Automate Boring Tasks</h1>
     <p>Hate repetitive work? These Python scripts save time.</p>
+
     <h2>1. Batch Rename Files</h2>
-    <pre>
-        <code>
-        import osfolder = "path/to/folder"
-        for i, filename in enumerate(os.listdir(folder)):
-            os.rename(f"{folder}/{filename}", f"{folder}/file_{i}.txt")
-        print("Done renaming!")
-        </code>
-    </pre>
+    <pre><code>
+import os
+
+folder = "path/to/folder"
+for i, filename in enumerate(os.listdir(folder)):
+    os.rename(f"{folder}/{filename}", f"{folder}/file_{i}.txt")
+print("Done renaming!")
+    </code></pre>
     <p>Run this on <a href="https://www.digitalocean.com">DigitalOcean</a> (affiliate soon).</p>
+
+    <h2>2. Email Alert</h2>
+    <pre><code>
+import smtplib
+from email.mime.text import MIMEText
+
+msg = MIMEText("Task complete!")
+msg["Subject"] = "Alert"
+msg["From"] = "you@gmail.com"
+msg["To"] = "you@gmail.com"
+
+with smtplib.SMTP("smtp.gmail.com", 587) as server:
+    server.starttls()
+    server.login("you@gmail.com", "your_password")
+    server.send_message(msg)
+
+print("Email sent!")
+    </code></pre>
+
+    <h2>3. Simple Web Scraper</h2>
+    <pre><code>
+import requests
+from bs4 import BeautifulSoup
+
+url = "https://example.com"
+response = requests.get(url)
+soup = BeautifulSoup(response.text, "html.parser")
+
+titles = soup.find_all("h1")
+for title in titles:
+    print(title.text)
+    </code></pre>
+
     <p><a href="/index.html">Back to home</a></p>
+
 </body>
 </html>
-        
-        
