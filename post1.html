@@ -47,11 +47,12 @@ for i, filename in enumerate(os.listdir(folder)):
 print("Done renaming!")
     </code></pre>
     <p>Run this on <a href="https://www.digitalocean.com">DigitalOcean</a> (affiliate soon).</p>
-
+    <p>Learn more with <a href="https://amzn.to/3FyBLGN">Automate the Boring Stuff with Python</a>.</p>
     <h2>2. Email Alert</h2>
-    <pre><code>
+    <pre>
+        <code>
 import smtplib
-from email.mime.text import MIMEText
+from email.mime.text import MIMEText    
 
 msg = MIMEText("Task complete!")
 msg["Subject"] = "Alert"
